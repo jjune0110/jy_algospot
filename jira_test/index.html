@@ -1,10 +1,93 @@
 <!DOCTYPE html>
 <html>
-<title>HTML Tutorial</title>
+
+<head>
+    <title>Build request</title>
+
+    <script>
+        function init() {
+            var x = document.getElementById('webOS20_branch');
+            x.style.display = 'none';
+
+            x = document.getElementById('webOS30_branch');
+            x.style.display = 'none';
+
+            x = document.getElementById('webOS35_branch');
+            x.style.display = 'none';
+        }
+
+        function checkRadio() {
+            var plat = document.getElementsByName('platform');
+            var branch = '';
+            var model = '';
+            var x = '';
+
+            for (var i = 0; i < plat.length; ++i) {
+                branch = plat[i].value + '_branch';
+                x = document.getElementById(branch);
+                if (plat[i].checked == false) {
+                    x.style.display = 'none';
+                } else {
+                    x.style.display = 'block';
+                    model = plat[i].value + '_check';
+                    document.getElementById(model).checked = true;
+                }
+            }
+
+        }
+
+        window.addEventListener('load', init);
+        window.addEventListener('change', checkRadio);
+    </script>
+</head>
+
+
 <body>
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+    <form action="http://whoami.zc.bz/jira/get_info.py">
+        <input type="radio" value="webOS10" name="platform" id="webOS10" checked>webOS1.0<br>
+        <div id="webOS10_branch" style="margin-left: 40px">
+            <input type="radio" value="213.azalea.dvb" name="model" id="webOS10_check" checked><label>LY760H-ZA (@213.azalea.dvb)</label><br>
+            <input type="radio" value="214.azalea.dvb3d" name="model"><label>LY960H-ZA (@214.azalea.dvb3d)</label><br>
+        </div>
 
+        <input type="radio" value="webOS20" name="platform" id="webOS20">webOS2.0<br>
+        <div id="webOS20_branch" style="margin-left: 40px">
+            <input type="radio" value="184.beehive4hotel.m14" name="model" id="webOS20_check"><label>@184.beehive4hotel.m14</label><br>
+            <input type="radio" value="236.beehive4hotel.lm15u" name="model"><label>@236.beehive4hotel.lm15u</label><br>
+        </div>
+
+        <input type="radio" value="webOS30" name="platform" id="webOS30">webOS3.0<br>
+        <div id="webOS30_branch" style="margin-left: 40px">
+            <input type="radio" value="40.51.deua4hotel.freeview" name="model" id="webOS30_check"><label>@40.51.deua4hotel.freeview</label><br>
+            <input type="radio" value="60.51.deua4hotel.freeview" name="model"><label>@60.51.deua4hotel.freeview</label><br>
+        </div>
+
+        <input type="radio" value="webOS35" name="platform" id="webOS35">webOS3.5</label><br>
+        <div id="webOS35_branch" style="margin-left: 40px">
+            <input type="radio" value="326" name="model" id="webOS35_check"><label>@326</label><br>
+        </div>
+        <input type="submit" value="get info" />
+    </form>
+
+    <div id="result">
+        <table>
+            <tr>
+                <th>Create Date</th>
+                <th>Branch</th>
+                <th>Version</th>
+                <th>Reporter</th>
+                <th>Jira#</th>
+            </tr>
+            <tr>
+                <td>2017.11.04</td>
+                <td>@184.beehive4hotel</td>
+                <td>2.00.00</td>
+                <td>june0.kim</td>
+                <td><a href="http://hlm.lge.com/" target="_blank">EMEATV-1234</a></td>
+            </tr>
+        </table>
+    </div>
 </body>
+
 </html>
