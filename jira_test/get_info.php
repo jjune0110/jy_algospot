@@ -11,8 +11,12 @@
 </head>
 <body>
 
-Platform <?php echo $_GET["platform"]; ?><br>
-Model Name  <?php echo $_GET["model"]; ?><br>
+<form action="http://whoami.zc.bz/jira/get_info.php">
+    <label>Build Date</label>
+    <input type="date" value="resolutionDate" name="resolutionDate" id="resolutionDate"><br>
+    <input type="submit" value="get info" />
+</form>
+
 Resolution Date <?php echo $_GET["resolutionDate"]; ?><br><br>
 
 <?php $command = 'python get_info.py ' . $_GET["resolutionDate"];
