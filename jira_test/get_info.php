@@ -1,4 +1,14 @@
 <html>
+<head>
+	<title> Result </title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+	</style>
+</head>
 <body>
 
 Platform <?php echo $_GET["platform"]; ?><br>

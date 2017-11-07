@@ -7,6 +7,9 @@ fileName = sys.argv[1]+'.xml'
 with open(fileName, 'rt') as f:
  tree = ElementTree.parse(f)
 
+ print '<table>' 
+ print '<tr><th>Branch</th><th>Version</th><th>Reporter</th><th>Jira</th></tr>'
+
  for node in tree.findall('ticket'):
   node2 = node.find('branch')
   branch = node2.text
@@ -16,4 +19,7 @@ with open(fileName, 'rt') as f:
   reporter = node2.text
   node2 = node.find('jira')
   jira = node2.text
-  print branch, version, reporter, jira
+  link = '<a href=http://hlm.lge.com/issue/browse/'+jira+' target="_blank">'+jira+'</a>'
+  print '<tr><td>' + branch + '</td><td>' + version + '</td><td>' + reporter + '</td><td>' + link + '</td></tr>'
+
+ print '</table>'
