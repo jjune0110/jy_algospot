@@ -44,7 +44,7 @@
 
 <body>
 
-    <form action="http://whoami.zc.bz/jira/get_info.py">
+    <form action="http://whoami.zc.bz/jira/get_info.php">
         <input type="radio" value="webOS10" name="platform" id="webOS10" checked>webOS1.0<br>
         <div id="webOS10_branch" style="margin-left: 40px">
             <input type="radio" value="213.azalea.dvb" name="model" id="webOS10_check" checked><label>LY760H-ZA (@213.azalea.dvb)</label><br>
@@ -63,10 +63,13 @@
             <input type="radio" value="60.51.deua4hotel.freeview" name="model"><label>@60.51.deua4hotel.freeview</label><br>
         </div>
 
-        <input type="radio" value="webOS35" name="platform" id="webOS35">webOS3.5</label><br>
+        <input type="radio" value="webOS35" name="platform" id="webOS35">webOS3.5<br>
         <div id="webOS35_branch" style="margin-left: 40px">
             <input type="radio" value="326" name="model" id="webOS35_check"><label>@326</label><br>
         </div>
+
+        <label>Build Date</label>
+        <input type="date" value="resolutionDate" name="resolutionDate" id="resolutionDate"><br>
         <input type="submit" value="get info" />
     </form>
 
